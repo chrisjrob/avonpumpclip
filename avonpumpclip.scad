@@ -1,3 +1,6 @@
+// avonpumpclip/avonpumpclip.scad
+// Copyright 2013 Christopher Roberts
+
 // Pump clamp parameters
 length         = 110;
 width          = 35;

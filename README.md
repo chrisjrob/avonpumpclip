@@ -3,7 +3,7 @@ Avon Pump Clip
 
 Copyright (C) 2013 Christopher Roberts
 
-Licensed under the GPL v3 - see [LICENCE.md](https://github.com/chrisjrob/avonpumpclip/blob/master/LICENCE.md "Read licence")
+Licensed under the [GPL v3 Licence](https://github.com/chrisjrob/avonpumpclip/blob/master/LICENCE.md "Read licence")
 
 Description
 -----------

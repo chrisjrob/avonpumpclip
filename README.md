@@ -11,9 +11,12 @@ Having bought an inflatable Avon Redcrest dinghy on eBay, I found that the pump 
 
 Newer pumps instead came with a plastic clip that attached to the pump hose and clamped the two halves together and I felt that it would be quite simple to replicate and so it proved. This was a simple design exercise and worked perfectly first time. I have since re-sold the dinghy and hope that the pump clip is still serving its new owner.
 
+This project includes two designs, the first for the older design wooden pumps, and the second for the newer design plastic pumps. The newer design has not been tested as yet.
+
 Status
 ------
-Complete.
+[Older design for older wooden pumps](https://github.com/chrisjrob/avonpumpclip/blob/master/avonpumpclip.stl) is complete.
+[Newer design for newer plastic pumps](https://github.com/chrisjrob/avonpumpclip/blob/master/avonpumpclip-new.stl) is complete but untested.
 
 Instructions
 ------------

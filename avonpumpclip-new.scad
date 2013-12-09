@@ -75,7 +75,7 @@ module avonpumpclip_clamp() {
                 for ( y = [0, reach + shim] ) {
                     for ( x = [-jaws_width/2, jaws_width/2] ) {
                         translate( [x, y, 0] ) {
-                            cylinder( r = thickness, h = depth );
+                            cylinder( r = thickness, h = depth, $fn = circular_precision );
                         }
                     }
                 }

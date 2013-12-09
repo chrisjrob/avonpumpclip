@@ -45,7 +45,9 @@ module avonpumpclip() {
             // The projection
             for ( x = [ -jaws_width/2, jaws_width/2 ] ) {
                 translate( [ x, reach + thickness - projection/2, 0 ] ) {
-                    cylinder( r = projection/2, h = depth, $fn = circular_precision );
+                    scale( [1, 0.5, 1] ) {
+                        cylinder( r = projection, h = depth, $fn = circular_precision );
+                    }
                 }
             }
         }

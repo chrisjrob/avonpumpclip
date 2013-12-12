@@ -27,7 +27,7 @@ hose_diameter       = 28; //mm
 
 // Other parameters
 thickness           = 5; //mm
-circular_precision  = 100;
+circular_precision  = 200;
 shim                = 0.1; //mm
 
 module avonpumpclip() {
@@ -42,10 +42,17 @@ module avonpumpclip() {
             // cylinder around hose hole
             cylinder( r = hose_diameter/2 + thickness, h = depth, $fn = circular_precision );
 
-            // The projection
-            for ( x = [ -jaws_width/2, jaws_width/2 ] ) {
-                translate( [ x, reach + thickness - projection/2, 0 ] ) {
-                    scale( [1, 0.5, 1] ) {
+            // The projection - contains a bodge with the angles being hardcoded - needs fixing
+            translate( [ jaws_width/2, reach + thickness, 0 ] ) {
+                rotate( [0, 0, -33.5] ) {
+                    scale( [2, 0.5, 1] ) {
+                        cylinder( r = projection, h = depth, $fn = circular_precision );
+                    }
+                }
+            }
+            translate( [ -jaws_width/2, reach + thickness, 0 ] ) {
+                rotate( [0, 0, 33.5] ) {
+                    scale( [2, 0.5, 1] ) {
                         cylinder( r = projection, h = depth, $fn = circular_precision );
                     }
                 }

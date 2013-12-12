@@ -15,8 +15,8 @@ This project includes two designs, the first for the older design wooden pumps, 
 
 Status
 ------
-* [Older design for older wooden pumps](https://github.com/chrisjrob/avonpumpclip/blob/master/avonpumpclip.stl) is complete.
-* [Newer design for newer plastic pumps](https://github.com/chrisjrob/avonpumpclip/blob/master/avonpumpclip-new.stl) is complete but untested.
+* [Older design for older wooden pumps](https://github.com/chrisjrob/avonpumpclip/tree/master/wooden_pump) is complete and tested.
+* [Newer design for newer plastic pumps](https://github.com/chrisjrob/avonpumpclip/tree/master/plastic_pump) is complete but untested.
 
 Instructions
 ------------

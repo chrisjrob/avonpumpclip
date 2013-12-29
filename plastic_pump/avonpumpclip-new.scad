@@ -20,8 +20,8 @@
 depth               = 15; //mm
 jaws_width          = 70; //mm
 reach               = 15; //mm
-projection          = 3; //mm
-projection_angle    = 33.5; //degrees
+projection          = 5; //mm
+projection_angle    = 33.3; //degrees
 
 // Hose clamp parameters
 hose_diameter       = 28; //mm
@@ -33,7 +33,7 @@ shim                = 0.1; //mm
 
 module avonpumpclip() {
 
-    projection_radius = projection / cos(projection_angle);
+    projection_radius = (projection / cos(projection_angle))/2;
 
     difference() {
 
@@ -73,20 +73,20 @@ module projection(r,d) {
 
 
     // thickness should be translated to the hypotenuse from thickness and projection angle
-    projection_thickness = thickness / cos(projection_angle);
-
-
+    // cos @ = a / h
+    // h = a / cos @
+    projection_thickness = (thickness -r/2) / cos(projection_angle);
 
     union() {
         union() {
             scale( [0.5, 0.5, 1] ) {
                 cylinder( r = r, h = d, $fn = circular_precision );
             }
-            translate([-projection_thickness,-r/2,0]) {
-                cube([projection_thickness, r, d]);
+            translate([ -projection_thickness, -r/2, 0] ) {
+                cube([projection_thickness,r,d]);
             }
         }
-        translate([-projection_thickness, 0, 0]) {
+        translate([ -projection_thickness, 0, 0] ) {
             difference() {
 
                 // Things that exist
@@ -149,5 +149,9 @@ module avonpumpclip_clamp() {
 
 avonpumpclip();
 
-// projection_radius = projection / cos(projection_angle);
-// projection(projection_radius, depth);
+//translate([jaws_width/2-projection,reach-projection,2]) {
+//    cube([projection,projection,depth]);
+//}
+
+//projection_radius = projection / cos(projection_angle);
+//projection(projection_radius, depth);

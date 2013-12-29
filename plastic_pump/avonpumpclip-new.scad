@@ -72,21 +72,25 @@ module avonpumpclip() {
 module projection(r,d) {
 
 
-    // thickness should be translated to the hypotenuse from thickness and projection angle
+    // length should be translated to the hypotenuse from thickness and projection angle
     // cos @ = a / h
     // h = a / cos @
-    projection_thickness = (thickness -r/2) / cos(projection_angle);
+    projection_length = (thickness -r/2) / cos(projection_angle);
+
+    // sin @ = o / h
+    // o = sin @ * thickness
+    projection_thickness = sin(projection_angle) * thickness;
 
     union() {
         union() {
             scale( [0.5, 0.5, 1] ) {
                 cylinder( r = r, h = d, $fn = circular_precision );
             }
-            translate([ -projection_thickness, -r/2, 0] ) {
-                cube([projection_thickness,r,d]);
+            translate([ -projection_length, -r/2, 0] ) {
+                cube([projection_length,r,d]);
             }
         }
-        translate([ -projection_thickness, 0, 0] ) {
+        translate([ -projection_length, 0, 0] ) {
             difference() {
 
                 // Things that exist

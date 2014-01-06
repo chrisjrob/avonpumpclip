@@ -20,8 +20,8 @@
 depth                = 15; //mm
 jaws_width           = 70; //mm
 reach                = 15; //mm
-projection           = 3; //mm
-projection_thickness = 3; //degrees
+projection           = 2; //mm
+projection_thickness = 2; //degrees
 
 // Hose clamp parameters
 hose_diameter        = 28; //mm
@@ -105,16 +105,47 @@ module avonpumpclip_clamp() {
         // Things to be cut out
         union() {
             // hose hole
-            translate( [-jaws_width/2, thickness, -shim] ) {
-                cube( [ jaws_width, 2 * reach, depth + shim *2] );
+            translate( [-jaws_width/2 + thickness/2, thickness/2, -shim] ) {
+                minkowski() {
+                    cube( [ jaws_width - thickness, 2 * reach + thickness/2, depth + shim *2] );
+                    cylinder( r = thickness/2, h = shim, $fn = circular_precision );
+                }
             }
-            // 
         }
     }
 
 }
 
-avonpumpclip();
+module measurements() {
+    
+    difference() {
+
+        // Things that exist
+        union() {
+
+        }
+
+        // Things that don't exist
+        union() {
+            translate( [-jaws_width/2, reach + projection_thickness *3, depth/2] ) {
+                # cube( [ jaws_width, shim, 1 ] );
+            }
+            translate( [jaws_width*.35, projection_thickness, 0] ) {
+                # cube( [ 1, shim, depth ] );
+            }
+            translate( [-hose_diameter/2, 0, depth + projection_thickness] ) {
+                # cube( [hose_diameter, 1, shim] ); 
+            }
+        }
+    
+    }
+
+}
+
+difference() {
+    avonpumpclip();
+    measurements();
+}
 
 //translate([jaws_width/2-projection,reach-projection,2]) {
 //    cube([projection,projection,depth]);

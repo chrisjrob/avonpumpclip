@@ -136,6 +136,9 @@ module measurements() {
             translate( [-hose_diameter/2, 0, depth + projection_thickness] ) {
                 # cube( [hose_diameter, 1, shim] ); 
             }
+            translate( [-jaws_width/2, reach + projection_thickness *3, depth] ) {
+                # cube( [projection, shim, 1] );
+            }
         }
     
     }

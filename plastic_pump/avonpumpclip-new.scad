@@ -18,18 +18,21 @@
 
 // Pump clamp parameters
 depth                = 15; //mm
-jaws_width           = 70; //mm
-reach                = 15; //mm
+jaws_width           = 76; //mm
+reach                = 16; //mm
 projection           = 2; //mm
-projection_thickness = 2; //degrees
+projection_thickness = 2.4; //degrees
 
 // Hose clamp parameters
 hose_diameter        = 28; //mm
 
 // Other parameters
-thickness            = 5; //mm
+thickness            = 6; //mm
 circular_precision   = 200;
 shim                 = 0.1; //mm
+
+// Options
+measurements         = 0; // 1 = on, 0 = off
 
 module avonpumpclip() {
 
@@ -145,9 +148,13 @@ module measurements() {
 
 }
 
-difference() {
+if (measurements == 1) {
+    difference() {
+        avonpumpclip();
+        measurements();
+    }
+} else {
     avonpumpclip();
-    measurements();
 }
 
 //translate([jaws_width/2-projection,reach-projection,2]) {
